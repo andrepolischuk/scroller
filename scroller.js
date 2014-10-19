@@ -3,24 +3,24 @@
 
 !function(undefined) {
 
-  var Scroller = function(params) {
+  function Scroller(params) {
 
     /**
      * Reverse scroll
      */
-    
+
     params.reverse  = params.reverse || false;
 
     /**
      * Scroll interval (px)
      */
-    
+
     params.interval = params.interval || 50;
 
     /**
      * DOM object
      */
-    
+
     var el = this.el = document.getElementById(params.element);
     var cont;
 
@@ -29,7 +29,7 @@
      * @return {Object}
      * @api private
      */
-    
+
     var dimensions = function() {
 
       var result = {
@@ -46,14 +46,14 @@
       result.cont.size   = cont.clientHeight;
 
       return result;
-      
+
     };
 
     /**
      * Start touchmove
      * @api private
      */
-    
+
     var touchScrollStart = function(e) {
 
       e = e || window.event;
@@ -68,7 +68,7 @@
      * Moving by touchmove
      * @api private
      */
-    
+
     var touchScroll = function(e) {
 
       e = e || window.event;
@@ -97,7 +97,7 @@
      * Stop touchmove
      * @api private
      */
-    
+
     var touchScrollEnd = function(e) {
 
       e = e || window.event;
@@ -112,7 +112,7 @@
      * Moving by scroll
      * @api private
      */
-    
+
     var wheelScroll = function(e) {
 
       e = e || window.event;
@@ -135,7 +135,7 @@
      * @param  {Function} callback
      * @api private
      */
-    
+
     var scrollByOffset = function(offset, callback) {
 
       if (offset !== 0) {
@@ -165,7 +165,7 @@
      * @return {Number}
      * @api private
      */
-    
+
     var offsetNormalize = function(offset) {
 
       var dim = dimensions();
@@ -185,7 +185,7 @@
      * @param  {String} value
      * @api public
      */
-    
+
     this.go = function(value) {
 
       var dim = dimensions();
@@ -193,21 +193,20 @@
 
       value = value === '100%' ? max : parseInt(value);
       value = value > max ? max : value;
-      
+
       // scroll by px
       cont.style.top = '-' + value + 'px';
 
     };
 
-    
     /**
      * Initialize
      */
-    
+
     // adding container
     cont = document.createElement('div');
     cont.innerHTML = el.innerHTML;
-    
+
     // cont.style.width    = '100%';
     cont.style.display  = 'inline-block';
     cont.style.position = 'relative';
@@ -215,11 +214,11 @@
     el.innerHTML = '';
     el.appendChild(cont);
 
-    // init events      
+    // init events
     if ('ontouchstart' in window || 'onmsgesturechange' in window) {
 
       // touch events
-      
+
       // start move
       el.addEventListener('touchstart', touchScrollStart, false);
 
@@ -232,9 +231,9 @@
     } else {
 
       // scroll events
-          
+
       if ('function' === typeof window.addEventListener) {
-    
+
         if ('onwheel' in window) {
 
           el.addEventListener('wheel', wheelScroll, false);
@@ -252,7 +251,7 @@
           el.addEventListener('DOMMouseScroll', wheelScroll, false);
 
         }
-    
+
       } else {
 
         el.attachEvent('onmousewheel', wheelScroll);
@@ -262,13 +261,13 @@
     }
 
 
-  };
+  }
 
   /**
    * Example scroller creator
    */
-  
-  var Creator = function(element, params, callback) {
+
+  function Creator(element, params, callback) {
 
     if (typeof params === 'function') {
 
@@ -279,7 +278,7 @@
 
       params   = params || {};
       callback = callback || undefined;
-      
+
     }
 
     params.element  = element;
@@ -287,12 +286,12 @@
 
     return new Scroller(params);
 
-  };
+  }
 
   /**
    * Module exports
    */
-  
+
   window.scroller = Creator;
 
 }();
