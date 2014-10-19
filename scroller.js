@@ -292,6 +292,20 @@
    * Module exports
    */
 
-  window.scroller = Creator;
+  if (typeof define === 'function' && define.amd) {
 
-}();
+    define([], function() {
+      return Creator;
+    });
+
+  } else if (typeof module !== 'undefined' && module.exports) {
+
+    module.exports = Creator;
+
+  } else {
+
+    this.scroller = Creator;
+
+  }
+
+}.call(this);
