@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Scroller</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/page.css" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="page-header">
+      <h2>
+        Scroller
+        <small><a href="https://github.com/andrepolischuk/scroller">Github</a></small>
+      </h2>
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm-7">
+        <h4>Scrollable area 1</h4>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="scroll" id="scroll1">
+              Основан 16 [27] мая 1703 (с 18 [31] августа 1914 до 26 января 1924 — Петроград, с 26 января 1924 до 6 сентября 1991 года — Ленинград) — город федерального значения Российской Федерации, административный центр Северо-Западного федерального округа.
+              <br><br>
+              Расположен на северо-западе Российской Федерации, на побережье Финского залива и в устье реки Невы.
+              <br><br>
+              В Санкт-Петербурге находятся Конституционный Суд Российской Федерации, Геральдический совет при Президенте Российской Федерации, органы власти Ленинградской области, Межпарламентская ассамблея стран СНГ. В городе также размещены Главное командование Военно-морского флота и штаб Западного военного округа Вооруженных сил России.
+            </div>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default" onclick="scroll1.go(0);">Go to start</button>
+          <button type="button" class="btn btn-default" onclick="scroll1.go('100%');">To end</button>
+        </div>
+      </div>
+
+      <div class="col-sm-5">
+        <h4>Scrollable area 2</h4>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="scroll" id="scroll2">
+              Основан 16 [27] мая 1703 (с 18 [31] августа 1914 до 26 января 1924 — Петроград, с 26 января 1924 до 6 сентября 1991 года — Ленинград) — город федерального значения Российской Федерации, административный центр Северо-Западного федерального округа.
+              <br><br>
+              Расположен на северо-западе Российской Федерации, на побережье Финского залива и в устье реки Невы.
+              <br><br>
+              В Санкт-Петербурге находятся Конституционный Суд Российской Федерации, Геральдический совет при Президенте Российской Федерации, органы власти Ленинградской области, Межпарламентская ассамблея стран СНГ. В городе также размещены Главное командование Военно-морского флота и штаб Западного военного округа Вооруженных сил России.
+            </div>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default" onclick="scroll2.go(0);">Go to start</button>
+          <button type="button" class="btn btn-default" onclick="scroll2.go('100%');">To end</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="js/scroller.min.js"></script>
+
+  <script type="text/javascript">
+    var scroll1 = scroller('scroll1');
+    var scroll2 = scroller('scroll2');
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+body {
+  background-color: #fff;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.scroll {
+  max-height: 180px;
+  overflow: hidden;
+}
