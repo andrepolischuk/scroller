@@ -21,8 +21,14 @@
      * DOM object
      */
 
-    var el = this.el = document.getElementById(params.element);
+    var el = this.el = params.element;
     var cont;
+
+    /**
+     * Exclude dumlication
+     */
+
+    el.setAttribute('data-scroller', true);
 
     /**
      * Get dimensions
@@ -268,6 +274,12 @@
    */
 
   function Creator(element, params, callback) {
+
+    element = document.getElementById(element);
+
+    if (element.getAttribute('data-scroller')) {
+      return;
+    }
 
     if (typeof params === 'function') {
 
