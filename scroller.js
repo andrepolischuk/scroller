@@ -31,6 +31,24 @@
     el.setAttribute('data-scroller', true);
 
     /**
+     * Set request animation frame
+     */
+
+    var requestFrame = (function(){
+
+      return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback, element){
+          window.setTimeout(callback, 1000 / 60);
+        };
+
+    })();
+
+
+    /**
      * Get dimensions
      * @return {Object}
      * @api private
@@ -205,7 +223,26 @@
       value = measure === '%' ? max * value / 100 : value;
       value = value > max ? max : value;
 
-      cont.style.top = '-' + value + 'px';
+      var offset = el.offsetTop - cont.offsetTop;
+      var step = max / 1000 * 60;
+
+      !function interval(pos) {
+
+        if (pos === value) {
+          return;
+        }
+
+        pos = offset < value ? pos + step : pos - step;
+        pos = pos < 0 ? 0 : pos;
+        pos = pos > max ? max : pos;
+
+        cont.style.top = -pos + 'px';
+
+        requestFrame(function() {
+          interval(pos);
+        });
+
+      }(offset);
 
     };
 
