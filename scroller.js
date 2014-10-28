@@ -194,13 +194,17 @@
 
     this.go = function(value) {
 
+      var exp = /^(\d+)(px|%)?$/;
       var dim = dimensions();
       var max = dim.cont.size - dim.el.size;
 
-      value = value === '100%' ? max : parseInt(value);
+      var measure = ('' + value).replace(exp, "$2");
+      measure = measure || 'px';
+
+      value = parseInt(('' + value).replace(exp, "$1"));
+      value = measure === '%' ? max * value / 100 : value;
       value = value > max ? max : value;
 
-      // scroll by px
       cont.style.top = '-' + value + 'px';
 
     };
