@@ -7,7 +7,7 @@
   Via script tag in page sources:
 
 ```html
-<script src="/static/js/scroller.min.js"></script>
+<script src="//cdn.rawgit.com/andrepolischuk/scroller/0.2.0/scroller.min.js"></script>
 ```
 
 ```js
