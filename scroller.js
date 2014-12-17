@@ -47,6 +47,20 @@
 
     })();
 
+    /**
+     * Prevent default
+     * @param {Object} e
+     */
+
+    function preventDefault(e) {
+
+      if (e.preventDefault) {
+        e.preventDefault();
+      } else {
+        e.returnValue = false;
+      }
+
+    }
 
     /**
      * Get dimensions
@@ -82,7 +96,7 @@
     function touchScrollStart(e) {
 
       e = e || window.event;
-      e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+      preventDefault(e);
       e = e.type === 'touchmove' ? e.changedTouches[0] : e;
 
       el.setAttribute('data-touch', e.clientY - el.offsetTop);
@@ -98,7 +112,7 @@
     function touchScroll(e) {
 
       e = e || window.event;
-      e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+      preventDefault(e);
       e = e.type === 'touchmove' ? e.changedTouches[0] : e;
 
       if (el.getAttribute('data-touch')) {
@@ -128,7 +142,7 @@
     function touchScrollEnd(e) {
 
       e = e || window.event;
-      e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+      preventDefault(e);
       e = e.type === 'touchmove' ? e.changedTouches[0] : e;
 
       el.removeAttribute('data-touch');
@@ -144,7 +158,7 @@
     function wheelScroll(e) {
 
       e = e || window.event;
-      e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+      preventDefault(e);
 
       // scroll delta
       var delta = e.deltaY || e.detail || (-e.wheelDelta);
