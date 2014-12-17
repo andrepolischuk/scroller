@@ -1,7 +1,7 @@
 // Scroller © 2014 Andrey Polischuk
 // https://github.com/andrepolischuk/scroller
 
-!function(undefined) {
+!function() {
 
   function Scroller(params) {
 
@@ -54,7 +54,7 @@
      * @api private
      */
 
-    var dimensions = function() {
+    function dimensions() {
 
       var result = {
         el   : {},
@@ -71,14 +71,15 @@
 
       return result;
 
-    };
+    }
 
     /**
      * Start touchmove
+     * @param {Object} e
      * @api private
      */
 
-    var touchScrollStart = function(e) {
+    function touchScrollStart(e) {
 
       e = e || window.event;
       e.preventDefault ? e.preventDefault() : (e.returnValue = false);
@@ -86,14 +87,15 @@
 
       el.setAttribute('data-touch', e.clientY - el.offsetTop);
 
-    };
+    }
 
     /**
      * Moving by touchmove
+     * @param {Object} e
      * @api private
      */
 
-    var touchScroll = function(e) {
+    function touchScroll(e) {
 
       e = e || window.event;
       e.preventDefault ? e.preventDefault() : (e.returnValue = false);
@@ -115,14 +117,15 @@
 
       }
 
-    };
+    }
 
     /**
      * Stop touchmove
+     * @param {Object} e
      * @api private
      */
 
-    var touchScrollEnd = function(e) {
+    function touchScrollEnd(e) {
 
       e = e || window.event;
       e.preventDefault ? e.preventDefault() : (e.returnValue = false);
@@ -130,28 +133,29 @@
 
       el.removeAttribute('data-touch');
 
-    };
+    }
 
     /**
      * Moving by scroll
+     * @param {Object} e
      * @api private
      */
 
-    var wheelScroll = function(e) {
+    function wheelScroll(e) {
 
       e = e || window.event;
       e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
       // scroll delta
       var delta = e.deltaY || e.detail || (-e.wheelDelta);
-      delta = delta / Math.abs(delta);
+      delta /= Math.abs(delta);
       delta = params.reverse ? -delta : delta;
 
       var offset = offsetNormalize(params.interval * -delta);
 
       scrollByOffset(offset);
 
-    };
+    }
 
     /**
      * Scroll by offset
@@ -160,7 +164,7 @@
      * @api private
      */
 
-    var scrollByOffset = function(offset, callback) {
+    function scrollByOffset(offset, callback) {
 
       if (offset !== 0) {
 
@@ -181,7 +185,7 @@
 
       }
 
-    };
+    }
 
     /**
      * Normalize offset values
@@ -190,7 +194,7 @@
      * @api private
      */
 
-    var offsetNormalize = function(offset) {
+    function offsetNormalize(offset) {
 
       var dim = dimensions();
 
@@ -202,7 +206,7 @@
 
       return offset;
 
-    };
+    }
 
     /**
      * Scroll to px
