@@ -48,6 +48,37 @@
     })();
 
     /**
+     * Scroll events
+     */
+
+    var scrollEvents = [
+      'wheel',
+      'mousewheel',
+      'scroll',
+      'DOMMouseScroll'
+    ];
+
+    /**
+     * Add event listener
+     * @param {Object} target
+     * @param {String} event
+     * @param {Function} fn
+     * @api private
+     */
+
+    function onEventListener(target, event, fn) {
+
+      if (target.addEventListener) {
+        target.addEventListener(event, fn, false);
+      } else {
+        target.attachEvent('on' + event, function() {
+          fn.call(target, window.event);
+        });
+      }
+
+    }
+
+    /**
      * Prevent default
      * @param {Object} e
      */
@@ -95,7 +126,6 @@
 
     function touchScrollStart(e) {
 
-      e = e || window.event;
       preventDefault(e);
       e = e.type === 'touchmove' ? e.changedTouches[0] : e;
 
@@ -111,7 +141,6 @@
 
     function touchScroll(e) {
 
-      e = e || window.event;
       preventDefault(e);
       e = e.type === 'touchmove' ? e.changedTouches[0] : e;
 
@@ -141,7 +170,6 @@
 
     function touchScrollEnd(e) {
 
-      e = e || window.event;
       preventDefault(e);
       e = e.type === 'touchmove' ? e.changedTouches[0] : e;
 
@@ -157,7 +185,6 @@
 
     function wheelScroll(e) {
 
-      e = e || window.event;
       preventDefault(e);
 
       // scroll delta
@@ -279,52 +306,24 @@
     el.innerHTML = '';
     el.appendChild(cont);
 
-    // init events
     if ('ontouchstart' in window || 'onmsgesturechange' in window) {
 
       // touch events
-
-      // start move
-      el.addEventListener('touchstart', touchScrollStart, false);
-
-      // move
-      el.addEventListener('touchmove', touchScroll, false);
-
-      // stop move
-      el.addEventListener('touchend', touchScrollEnd, false);
+      onEventListener(el, 'touchstart', touchScrollStart);
+      onEventListener(el, 'touchmove', touchScroll);
+      onEventListener(el, 'touchend', touchScrollEnd);
 
     } else {
 
       // scroll events
-
-      if ('function' === typeof window.addEventListener) {
-
-        if ('onwheel' in window) {
-
-          el.addEventListener('wheel', wheelScroll, false);
-
-        } else if ('onmousewheel' in window) {
-
-          el.addEventListener('mousewheel', wheelScroll, false);
-
-        } else if ('onscroll' in window) {
-
-          el.addEventListener('scroll', wheelScroll, false);
-
-        } else {
-
-          el.addEventListener('DOMMouseScroll', wheelScroll, false);
-
+      for (var e = 0; e < scrollEvents.length; e++) {
+        if ('on' + scrollEvents[e] in window) {
+          onEventListener(el, scrollEvents[e], wheelScroll);
+          break;
         }
-
-      } else {
-
-        el.attachEvent('onmousewheel', wheelScroll);
-
       }
 
     }
-
 
   }
 
