@@ -1,0 +1,16 @@
+{
+  "name": "skrl",
+  "description": "Scroll content by wheel & touches",
+  "version": "0.2.0",
+  "keywords": [
+    "scroll",
+    "scroller"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andrepolischuk/skrl.git"
+  },
+  "main": "skrl.js",
+  "author": "Andrey Polischuk <andre.polischuk@gmail.com>",
+  "license": "MIT"
+}
