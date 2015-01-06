@@ -1,9 +1,9 @@
-// Scroller © 2014 Andrey Polischuk
-// https://github.com/andrepolischuk/scroller
+// Skrl © 2014-2015 Andrey Polischuk
+// github.com/andrepolischuk/skrl
 
 !function() {
 
-  function Scroller(params) {
+  function Skrl(params) {
 
     /**
      * Reverse scroll
@@ -28,7 +28,7 @@
      * Exclude dumlication
      */
 
-    el.setAttribute('data-scroller', true);
+    el.setAttribute('data-skrl', true);
 
     /**
      * Set request animation frame
@@ -328,14 +328,14 @@
   }
 
   /**
-   * Example scroller creator
+   * Creator
    */
 
   function Creator(element, params, callback) {
 
     element = document.getElementById(element);
 
-    if (element.getAttribute('data-scroller')) {
+    if (element.getAttribute('data-skrl')) {
       return;
     }
 
@@ -354,7 +354,7 @@
     params.element  = element;
     params.callback = callback;
 
-    return new Scroller(params);
+    return new Skrl(params);
 
   }
 
@@ -374,7 +374,7 @@
 
   } else {
 
-    this.scroller = Creator;
+    this.skrl = Creator;
 
   }
 

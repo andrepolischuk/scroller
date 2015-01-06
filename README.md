@@ -1,4 +1,4 @@
-# Scroller
+# Skrl
 
   Scroll content by wheel & touches
 
@@ -7,11 +7,11 @@
   Via script tag in page sources:
 
 ```html
-<script src="//cdn.rawgit.com/andrepolischuk/scroller/0.2.0/scroller.min.js"></script>
+<script src="//cdn.rawgit.com/andrepolischuk/skrl/0.2.0/skrl.min.js"></script>
 ```
 
 ```js
-var scroll = scroller(id[, params, callback]);
+var scroll = skrl(id[, params, callback]);
 ```
 
 ### id
@@ -32,10 +32,10 @@ var scroll = scroller(id[, params, callback]);
 
 ## API
 
-### scroller.el
+### skrl.el
 
   Scroller area
 
-### scroller.go(offset)
+### skrl.go(offset)
 
   Scroll to defined offset (px)
