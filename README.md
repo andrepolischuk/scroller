@@ -4,11 +4,25 @@
 
 ## Instalation
 
-  Via script tag in page sources:
+  Browser:
 
 ```html
-<script src="//cdn.rawgit.com/andrepolischuk/skrl/0.2.0/skrl.min.js"></script>
+<script src="https://cdn.rawgit.com/andrepolischuk/skrl/1.0.0/skrl.min.js"></script>
 ```
+
+  Component(1):
+
+```sh
+$ component install andrepolischuk/skrl
+```
+
+  Npm:
+
+```sh
+$ npm install skrl
+```
+
+## Use
 
 ```js
 var scroll = skrl(id[, params, callback]);

@@ -1,3 +1,9 @@
+# 1.0.0 / 2015.01.07
+
+  * Rename module to Skrl from Scroller
+  * Add npm support
+  * Add component support #7
+
 # 0.2.0 / 2014.10.28
 
   * Add animation to scroll #2
