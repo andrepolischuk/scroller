@@ -1,28 +1,18 @@
-# Skrl
+# skrl
 
-  Scroll content by wheel & touches
+  > Scroll content by wheel & touches
 
 ## Instalation
 
-  Browser:
-
-```html
-<script src="https://cdn.rawgit.com/andrepolischuk/skrl/1.0.0/skrl.min.js"></script>
+```sh
+$ npm install --save skrl
 ```
-
-  Component(1):
 
 ```sh
 $ component install andrepolischuk/skrl
 ```
 
-  Npm:
-
-```sh
-$ npm install skrl
-```
-
-## Use
+## Usage
 
 ```js
 var scroll = skrl(id[, params, callback]);
@@ -53,3 +43,7 @@ var scroll = skrl(id[, params, callback]);
 ### skrl.go(offset)
 
   Scroll to defined offset (px)
+
+## License
+
+  MIT

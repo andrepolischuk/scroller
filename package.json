@@ -6,11 +6,8 @@
     "scroll",
     "scroller"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/andrepolischuk/skrl.git"
-  },
-  "main": "skrl.js",
+  "repository": "andrepolischuk/skrl",
+  "main": "index.js",
   "author": "Andrey Polischuk <andre.polischuk@gmail.com>",
   "license": "MIT"
 }
