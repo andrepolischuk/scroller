@@ -1,7 +1,7 @@
 {
   "name": "skrl",
   "description": "Scroll content by wheel & touches",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "scroll",
     "scroller"
