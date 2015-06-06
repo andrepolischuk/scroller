@@ -2,14 +2,14 @@
 
   > Scroll content by wheel & touches
 
-## Instalation
+## Install
 
 ```sh
-$ npm install --save skrl
+npm install --save skrl
 ```
 
 ```sh
-$ component install andrepolischuk/skrl
+component install andrepolischuk/skrl
 ```
 
 ## Usage
